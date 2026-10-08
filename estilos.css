@@ -1,502 +1,366 @@
+/* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
 }
-
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: #ffffff;
-    min-height: 100vh;
-    padding: 20px;
-    transition: background 0.5s ease;
+ font-family: 'Segoe UI', Arial, sans-serif;
+ background: linear-gradient(135deg, #1e3c72, #2a5298);
+ color: #ffffff;
+ min-height: 100vh;
+ padding: 20px;
+ transition: background 0.5s ease;
 }
-
-/* ============================================
-   CLIMAS
-   ============================================ */
-
+/* Fondos según el clima */
 body.clima-soleado {
-    background: linear-gradient(135deg, #f12711, #f5af19);
+ background: linear-gradient(135deg, #f12711, #f5af19);
 }
-
 body.clima-nublado {
-    background: linear-gradient(135deg, #757F9A, #D7DDE8);
-    color: #1e3c72;
+ background: linear-gradient(135deg, #606c88, #3f4c6b);
 }
-
 body.clima-lluvioso {
-    background: linear-gradient(135deg, #1e3c72, #2a5298, #4b6cb7);
+ background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
 }
-
 body.clima-nieve {
-    background: linear-gradient(135deg, #83a4d4, #b6fbff);
-    color: #1e3c72;
+ background: linear-gradient(135deg, #e6dada, #274046);
 }
-
-/* ============================================
-   ENCABEZADO
-   ============================================ */
-
 header {
-    text-align: center;
-    margin-bottom: 30px;
+ text-align: center;
+ margin-bottom: 30px;
 }
-
 .banner {
-    max-width: 100%;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+ width: 100%;
+ max-width: 800px;
+ height: auto;
+ border-radius: 15px;
+ margin-bottom: 20px;
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+ transition: transform 0.3s ease;
 }
-
+.banner:hover {
+ transform: scale(1.02);
+}
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+ font-size: 2.5rem;
+ text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
-
 header p {
-    font-size: 1.1rem;
-    color: #e0e0e0;
+ color: #e0e0e0;
+ margin-top: 5px;
 }
-
-/* ============================================
-   BUSCADOR
-   ============================================ */
-
+main {
+ max-width: 800px;
+ margin: 0 auto;
+ text-align: center;
+}
 .buscador {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+ display: flex;
+ gap: 10px;
+ justify-content: center;
+ flex-wrap: wrap;
+ margin-bottom: 30px;
 }
-
 #inputCiudad {
-    padding: 15px 25px;
-    border: 2px solid #ffffff;
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-    font-size: 1rem;
-    width: 300px;
-    outline: none;
-    transition: all 0.3s ease;
+ padding: 15px 25px;
+ border: 2px solid #ffffff;
+ border-radius: 25px;
+ background: rgba(255, 255, 255, 0.2);
+ color: #ffffff;
+ font-size: 1rem;
+ width: 300px;
+ outline: none;
+ transition: all 0.3s ease;
 }
-
 #inputCiudad::placeholder {
-    color: #cccccc;
+ color: #cccccc;
 }
-
 #inputCiudad:focus {
-    background: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+ background: rgba(255, 255, 255, 0.3);
+ box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
-
 button {
-    background: #ffffff;
-    color: #1e3c72;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+ background: #ffffff;
+ color: #1e3c72;
+ border: none;
+ padding: 15px 30px;
+ font-size: 1rem;
+ font-weight: bold;
+ border-radius: 25px;
+ cursor: pointer;
+ transition: all 0.3s ease;
 }
-
 button:hover {
-    background: #f0f0f0;
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+ background: #f0f0f0;
+ transform: scale(1.05);
+ box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
 }
-
 button:disabled {
-    background: #888;
-    cursor: not-allowed;
-    transform: none;
+ background: #888;
+ cursor: not-allowed;
+ transform: none;
 }
-
-/* ============================================
-   RESULTADO DEL CLIMA
-   ============================================ */
-
 .resultado {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    padding: 30px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    animation: aparecer 0.5s ease;
-    display: none;
-    max-width: 600px;
-    margin: 0 auto;
+ background: rgba(255, 255, 255, 0.15);
+ border-radius: 20px;
+ padding: 30px;
+ backdrop-filter: blur(10px);
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+ animation: aparecer 0.5s ease;
+ display: none;
 }
-
 .resultado.visible {
-    display: block;
+ display: block;
 }
-
 @keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+ from {
+ opacity: 0;
+ transform: translateY(20px);
+ }
+ to {
+ opacity: 1;
+ transform: translateY(0);
+ }
 }
-
 .resultado .ciudad {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
+ font-size: 2rem;
+ font-weight: bold;
+ margin-bottom: 10px;
 }
-
 .resultado .pais {
-    font-size: 1.2rem;
-    color: #e0e0e0;
-    margin-bottom: 20px;
+ font-size: 1.2rem;
+ color: #e0e0e0;
+ margin-bottom: 20px;
 }
-
 .resultado .icono-clima {
-    width: 100px;
-    height: 100px;
-    margin: 10px auto;
-    display: block;
+ width: 100px;
+ height: 100px;
+ margin: 10px auto;
 }
-
 .resultado .temperatura {
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin: 10px 0;
-    text-align: center;
+ font-size: 3.5rem;
+ font-weight: bold;
+ margin: 10px 0;
 }
-
 .resultado .descripcion {
-    font-size: 1.3rem;
-    text-transform: capitalize;
-    margin-bottom: 20px;
-    text-align: center;
+ font-size: 1.3rem;
+ text-transform: capitalize;
+ margin-bottom: 20px;
 }
-
 .resultado .detalles {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+ gap: 15px;
+ margin-top: 20px;
 }
-
 .resultado .detalle {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 15px;
-    text-align: center;
+ background: rgba(255, 255, 255, 0.1);
+ border-radius: 15px;
+ padding: 15px;
 }
-
 .resultado .detalle .etiqueta {
-    font-size: 0.85rem;
-    color: #cccccc;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+ font-size: 0.85rem;
+ color: #cccccc;
+ text-transform: uppercase;
+ letter-spacing: 1px;
 }
-
 .resultado .detalle .valor {
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-top: 5px;
+ font-size: 1.3rem;
+ font-weight: bold;
+ margin-top: 5px;
 }
-
-/* ============================================
-   ESTADO
-   ============================================ */
-
 #estado {
-    text-align: center;
-    margin-top: 20px;
-    color: #e0e0e0;
-    font-style: italic;
+ margin-top: 20px;
+ color: #e0e0e0;
+ font-style: italic;
 }
-
-/* ============================================
-   FOOTER
-   ============================================ */
-
 footer {
-    text-align: center;
-    margin-top: 40px;
-    color: #cccccc;
-    font-size: 0.85rem;
+ text-align: center;
+ margin-top: 40px;
+ color: #cccccc;
+ font-size: 0.85rem;
+}
+/* Responsive */
+@media (max-width: 600px) {
+ header h1 {
+ font-size: 1.8rem;
+ }
+
+ #inputCiudad {
+ width: 100%;
+ }
+
+ .resultado .temperatura {
+ font-size: 2.5rem;
+ }
+
+ .banner {
+ max-width: 100%;
+ }
 }
 
 /* ============================================
-   BOTÓN DE UBICACIÓN
+   ESTILOS ADICIONALES PARA LOS RETOS
+   (Se conservan los estilos originales intactos)
    ============================================ */
 
-.btn-ubicacion {
-    display: block;
-    margin: 0 auto 20px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-    border: 2px solid #ffffff;
-    padding: 12px 25px;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
+/* RETO 1 & RETO 4: Botones Secundarios */
+.btn-icono {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+.header-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
 }
 
-.btn-ubicacion:hover {
-    background: rgba(255, 255, 255, 0.35);
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+/* RETO 2: Pronóstico de 5 Días */
+.pronostico-seccion {
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 20px;
+}
+.titulo-pronostico {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.pronostico-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+}
+.pronostico-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pronostico-fecha {
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.pronostico-icono {
+  width: 50px;
+  height: 50px;
+}
+.pronostico-temp {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.pronostico-desc {
+  font-size: 0.75rem;
+  color: #e0e0e0;
+  text-transform: capitalize;
+  margin-top: 4px;
 }
 
-/* ============================================
-   PRONÓSTICO
-   ============================================ */
-
-.pronostico {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 15px;
-    max-width: 700px;
-    margin: 30px auto 0;
+/* RETO 3: Historial de búsquedas */
+.historial-container {
+  margin-bottom: 25px;
 }
-
-.pronostico h3 {
-    grid-column: 1 / -1;
-    text-align: center;
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-}
-
-.dia-pronostico {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 15px;
-    padding: 15px 10px;
-    text-align: center;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-
-.dia-pronostico:hover {
-    transform: translateY(-5px);
-}
-
-.dia-pronostico .dia {
-    font-weight: bold;
-    text-transform: capitalize;
-    margin-bottom: 5px;
-    font-size: 0.95rem;
-}
-
-.dia-pronostico img {
-    width: 60px;
-    height: 60px;
-}
-
-.dia-pronostico .temp-dia {
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-.dia-pronostico .desc-dia {
-    font-size: 0.8rem;
-    color: #ccc;
-    text-transform: capitalize;
-}
-
-/* ============================================
-   HISTORIAL
-   ============================================ */
-
-.historial {
-    margin: 25px auto 0;
-    max-width: 600px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-}
-
 .titulo-historial {
-    font-size: 0.9rem;
-    color: #e0e0e0;
-    font-style: italic;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  margin-bottom: 10px;
 }
-
+.botones-historial {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .btn-historial {
-    padding: 8px 18px;
-    font-size: 0.85rem;
-    background: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  border-radius: 20px;
 }
-
 .btn-historial:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
+  background: #ffffff;
+  color: #1e3c72;
 }
 
-/* ============================================
-   BOTÓN DE TEMA
-   ============================================ */
-
-.btn-tema {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    padding: 0;
-    font-size: 1.4rem;
-    background: rgba(255, 255, 255, 0.2);
-    color: inherit;
-    border: 2px solid currentColor;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.btn-tema:hover {
-    transform: scale(1.1) rotate(15deg);
-    background: rgba(255, 255, 255, 0.35);
-}
-
-/* ============================================
-   MODO CLARO
-   ============================================ */
-
+/* RETO 4: Modo Claro (mediante clase 'claro' en <body>) */
 body.claro {
-    background: linear-gradient(135deg, #e0eafc, #cfdef3);
-    color: #1e3c72;
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+  color: #1e293b;
 }
-
-body.claro header h1 {
-    color: #1e3c72;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
-}
-
+body.claro header h1,
 body.claro header p,
 body.claro #estado,
-body.claro footer,
-body.claro .titulo-historial {
-    color: #4a5568;
+body.claro footer {
+  color: #1e293b;
+  text-shadow: none;
 }
-
 body.claro .resultado {
-    background: rgba(30, 60, 114, 0.08);
-    color: #1e3c72;
+  background: rgba(255, 255, 255, 0.8);
+  color: #0f172a;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
-
 body.claro .resultado .pais,
-body.claro .resultado .detalle .etiqueta {
-    color: #4a5568;
+body.claro .resultado .detalle .etiqueta,
+body.claro .pronostico-desc {
+  color: #475569;
 }
-
-body.claro .resultado .detalle {
-    background: rgba(30, 60, 114, 0.06);
+body.claro .resultado .detalle,
+body.claro .pronostico-card {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
-
 body.claro #inputCiudad {
-    background: rgba(30, 60, 114, 0.1);
-    color: #1e3c72;
-    border-color: #1e3c72;
+  border-color: #64748b;
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.8);
 }
-
 body.claro #inputCiudad::placeholder {
-    color: #666;
+  color: #64748b;
 }
-
 body.claro button {
-    background: #1e3c72;
-    color: #ffffff;
+  background: #1e293b;
+  color: #ffffff;
 }
-
+body.claro .btn-icono {
+  background: rgba(30, 41, 59, 0.15);
+  border-color: #1e293b;
+  color: #1e293b;
+}
 body.claro .btn-historial {
-    background: rgba(30, 60, 114, 0.1);
-    color: #1e3c72;
-    border-color: #1e3c72;
+  background: rgba(30, 41, 59, 0.1);
+  border-color: #64748b;
+  color: #1e293b;
+}
+body.claro .btn-historial:hover {
+  background: #1e293b;
+  color: #ffffff;
 }
 
-body.claro .btn-ubicacion {
-    color: #1e3c72;
-    border-color: #1e3c72;
-    background: rgba(30, 60, 114, 0.1);
+/* RETO 5: Compartir WhatsApp */
+.acciones-extra {
+  margin-top: 20px;
 }
-
-body.claro .dia-pronostico {
-    background: rgba(30, 60, 114, 0.08);
-    color: #1e3c72;
-}
-
-body.claro .dia-pronostico .desc-dia {
-    color: #666;
-}
-
-/* ============================================
-   WHATSAPP
-   ============================================ */
-
 .btn-whatsapp {
-    margin-top: 25px;
-    background: #25D366;
-    color: #ffffff;
-    padding: 12px 25px;
-    border-radius: 25px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+  display: inline-block;
+  background: #25d366;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
 }
-
 .btn-whatsapp:hover {
-    background: #1ebe5b;
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
-}
-
-/* ============================================
-   CELULARES
-   ============================================ */
-
-@media (max-width: 600px) {
-
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    #inputCiudad {
-        width: 100%;
-    }
-
-    .resultado .temperatura {
-        font-size: 2.5rem;
-    }
-
-    .banner {
-        max-width: 100%;
-    }
-
-    .resultado {
-        padding: 20px;
-    }
+  background: #128c7e;
+  transform: scale(1.05);
+  color: #ffffff;
 }
